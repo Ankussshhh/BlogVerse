@@ -2,7 +2,7 @@ const { Router } = require("express");
 const router = Router();
 const path = require("path");
 const Blog = require("../models/blog");
-const multer = require("multer")
+const multer = require("multer");
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -31,6 +31,14 @@ router.post("/", upload.single("coverImage"), async (req, res) => {
     coverImage: `/uploads/${req.file.filename}`,
   });
   return res.redirect(`/blog/${blog._id}`);
+});
+
+router.get("/:id", async (req, res) => {
+  const blog = await Blog.findById(req.params.id);
+  return res.render("viewBlog", {
+    user: req.user,
+    blog,
+  });
 });
 
 module.exports = router;
