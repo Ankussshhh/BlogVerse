@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 
 const userRoutes = require("./routes/user");
+const blogRoutes = require("./routes/blog");
 const {
   checkForAuthenticationCookie,
 } = require("./middlewares/authentication");
@@ -34,6 +35,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/user", userRoutes);
+app.use("/blog", blogRoutes);
 
 app.listen(PORT, () => {
   console.log(`Started on http://localhost:${PORT}`);

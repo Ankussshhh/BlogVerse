@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Add Blog</title>
+    <%- include("./partials/head") %>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background-color: #f8f9fa;
+      }
+
+      .main-content {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .form-container {
+        max-width: 600px;
+        width: 100%;
+        padding: 20px;
+        background: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-title {
+        font-size: 24px;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include("./partials/nav") %>
+    <div class="main-content">
+      <div class="form-container">
+        <h2 class="form-title">Add New Blog</h2>
+        <form action="/blog/" method="post" enctype="multipart/form-data">
+          <div class="mb-3">
+            <label for="blogTitle" class="form-label">Blog Title</label>
+            <input
+              type="text"
+              class="form-control"
+              id="blogTitle"
+              placeholder="Enter your blog title"
+              name="title"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="blogBody" class="form-label">Blog Body</label>
+            <textarea
+              class="form-control"
+              id="blogBody"
+              name="body"
+              rows="5"
+              placeholder="Write your blog content here"
+              required
+            ></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="coverImage" class="form-label">Upload Cover Image</label>
+            <input class="form-control" type="file" id="coverImage" name="coverImage">
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100">Submit</button>
+
+        </form>
+      </div>
+    </div>
+    <%- include("./partials/script") %>
+  </body>
+</html>
