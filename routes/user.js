@@ -33,4 +33,8 @@ router.post("/signin", async (req, res) => {
   }
 });
 
+router.get("/signout", (req,res) => {
+    res.clearCookie("token").redirect("/");
+})
+
 module.exports = router;
