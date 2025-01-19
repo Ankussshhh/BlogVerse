@@ -27,6 +27,13 @@
                 <%= blog.body %>
               </p>
             </div>
+            <div class="d-flex align-items-center mt-3">
+              <img src="<%= blog.createdBy.profileImageUrl %>" alt="<%= blog.createdBy.fullName %>" class="rounded-circle me-3" style="width: 50px; height: 50px;">
+              <div>
+                <p class="mb-0 fw-bold"><%= blog.createdBy.fullName %></p>
+                <p class="text-muted small">Posted on <%= new Date(blog.createdAt).toLocaleDateString() %></p>
+              </div>
+            </div>            
             <div class="card-footer bg-primary text-white text-center py-3">
               <p class="mb-0">Thank you for reading!</p>
             </div>

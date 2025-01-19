@@ -27,6 +27,13 @@
               <a href="/blog/<%= blog._id %>" class="btn btn-primary mt-auto">
                 View
               </a>
+              <div class="d-flex align-items-center mt-3">
+                <img src="<%= blog.createdBy.profileImageUrl %>" alt="<%= blog.createdBy.fullName %>" class="rounded-circle me-2" style="width: 50px; height: 50px;">
+                <div>
+                  <p class="mb-0 fw-bold"><%= blog.createdBy.fullName %></p>
+                  <p class="text-muted small">Posted on <%= new Date(blog.createdAt).toLocaleDateString() %></p>
+                </div>
+              </div>  
             </div>
           </div>
         </div>
