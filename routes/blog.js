@@ -45,6 +45,16 @@ router.get("/:id", async (req, res) => {
   });
 });
 
+router.get("/delete/blog/:id", async (req, res) => {
+  await Blog.deleteOne({_id : req.params.id});
+  return res.redirect(`/user/profile/${req.user._id}`);
+});
+
+router.get("/delete/comment/:id", async (req, res) => {
+  await Comment.deleteOne({_id : req.params.id});
+  return res.redirect(`/user/profile/${req.user._id}`);
+});
+
 router.post("/comment/:blogId", async(req,res) => {
   await Comment.create({
     content : req.body.content,

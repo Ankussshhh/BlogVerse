@@ -7,25 +7,25 @@
   <body class="bg-light">
     <%- include("./partials/nav") %>
     <div class="container my-5">
-      <h2 class="text-center mb-5 fw-bold text-primary">Blog List</h2>
+      <h2 class="text-center mb-5 fw-bold text-primary">Latest Blogs</h2>
 
       <div class="row g-4 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
         <% blogs.forEach(blog => { %>
         <div class="col">
-          <div class="card h-100 shadow-sm">
+          <div class="card h-100 shadow-lg border-0 rounded-lg">
             <img
               src="<%= blog.coverImage %>"
-              class="card-img-top"
+              class="card-img-top rounded-t-lg"
               alt="<%= blog.title %>"
               style="height: 200px; object-fit: cover;"
             />
             <div class="card-body d-flex flex-column">
-              <h5 class="card-title text-truncate"><%= blog.title %></h5>
+              <h5 class="card-title text-truncate fw-bold"><%= blog.title %></h5>
               <p class="card-text text-muted text-truncate">
                 <%= blog.body %>
               </p>
-              <a href="/blog/<%= blog._id %>" class="btn btn-primary mt-auto">
-                View
+              <a href="/blog/<%= blog._id %>" class="btn btn-primary mt-auto rounded-pill">
+                View More
               </a>
               <div class="d-flex align-items-center mt-3">
                 <img src="<%= blog.createdBy.profileImageUrl %>" alt="<%= blog.createdBy.fullName %>" class="rounded-circle me-2" style="width: 50px; height: 50px;">

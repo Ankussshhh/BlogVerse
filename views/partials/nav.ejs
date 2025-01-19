@@ -1,29 +1,29 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+<nav class="navbar navbar-expand-lg navbar-light bg-dark shadow-sm">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/">BlogVerse</a>
+    <a class="navbar-brand fw-bold text-white" href="/">BlogVerse</a>
     <button
       class="navbar-toggler"
       type="button"
       data-bs-toggle="collapse"
-      data-bs-target="#navbarNavDropdown"
-      aria-controls="navbarNavDropdown"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
       aria-expanded="false"
       aria-label="Toggle navigation"
     >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">Home</a>
+          <a class="nav-link active text-white fw-bold" aria-current="page" href="/">Home</a>
         </li>
         <% if (locals.user) { %>
         <li class="nav-item">
-          <a class="nav-link" href="/blog/add-new">Add Blog</a>
+          <a class="nav-link text-white fw-bold" href="/blog/add-new">Add Blog</a>
         </li>
         <li class="nav-item dropdown">
           <a
-            class="nav-link dropdown-toggle"
+            class="nav-link dropdown-toggle text-white fw-bold"
             href="#"
             role="button"
             data-bs-toggle="dropdown"
@@ -31,24 +31,20 @@
           >
             <%= locals.user.fullName %>
           </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/user/signout">SignOut</a></li>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item text-black fw-bold" href="/user/profile/<%= locals.user._id %>">My Profile</a></li>
+            <li><a class="dropdown-item text-black fw-bold" href="/user/signout">Sign Out</a></li>
           </ul>
         </li>
         <% } else { %>
         <li class="nav-item">
-          <a class="nav-link" href="/user/signup">Create Account</a>
+          <a class="nav-link text-white fw-bold" href="/user/signup">Sign Up</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/user/signin">SignIn</a>
+          <a class="nav-link text-white fw-bold" href="/user/signin">Sign In</a>
         </li>
-
         <% } %>
       </ul>
     </div>
   </div>
 </nav>
-
-<% if (locals.error) { %>
-<div class="alert alert-danger" role="alert"><%= locals.error %></div>
-<% } %>
